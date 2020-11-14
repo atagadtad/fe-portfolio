@@ -15,7 +15,7 @@ const App = () => {
             </span>
           </div>
           <div className="block lg:hidden">
-            <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <button className="flex focus:outline-none items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
               <svg
                 className="fill-current h-3 w-3"
                 viewBox="0 0 20 20"
