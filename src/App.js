@@ -12,6 +12,9 @@ const App = () => {
     <Router>
       <div className="h-screen flex flex-col">
         <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+        {showMenu && (
+          <MobileMenu showMenu={showMenu} setShowMenu={setShowMenu} />
+        )}
 
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
@@ -60,6 +63,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
         </span>
       </div>
       <MenuButton showMenu={showMenu} setShowMenu={setShowMenu} />
+
       <div className="hidden lg:block w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div className=" lg:block text-sm lg:flex-grow">
           <li className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">
@@ -70,6 +74,32 @@ const Menu = ({ showMenu, setShowMenu }) => {
           </li>
         </div>
       </div>
+    </nav>
+  );
+};
+
+const MobileMenu = ({ showMenu, setShowMenu }) => {
+  return (
+    <nav className="absolute p-6 h-screen pb-32 w-full bg-gray-700">
+      <div className="flex justify-end">
+        <MenuButton showMenu={showMenu} setShowMenu={setShowMenu} />
+      </div>
+      <ul className="h-full flex justify-center items-center">
+        <div className="">
+          <li
+            onClick={() => setShowMenu(false)}
+            className="text-center text-2xl font-semibold"
+          >
+            <Link to="/">Home</Link>
+          </li>
+          <li
+            onClick={() => setShowMenu(false)}
+            className="text-center text-2xl font-semibold"
+          >
+            <Link to="/courses">Courses</Link>
+          </li>
+        </div>
+      </ul>
     </nav>
   );
 };
